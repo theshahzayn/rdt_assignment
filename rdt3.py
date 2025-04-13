@@ -1,7 +1,4 @@
 
-import time
-import random
-
 class Packet:
     def __init__(self, seq, data):
         self.seq = seq
@@ -36,23 +33,3 @@ class Receiver:
         else:
             print(f"Receiver: Duplicate or out-of-order packet {pkt.seq}")
 
-class NetworkSimulator:
-    def __init__(self, loss_prob=0.2, corrupt_prob=0.1, delay_prob=0.1):
-        self.loss_prob = loss_prob
-        self.corrupt_prob = corrupt_prob
-        self.delay_prob = delay_prob
-
-    def send_packet(self, pkt, receiver, sender, timeout):
-        if random.random() < self.loss_prob:
-            print("Network: Packet lost")
-            return
-        if random.random() < self.corrupt_prob:
-            pkt = "CORRUPTED"
-        if random.random() < self.delay_prob:
-            print("Network: Packet delayed")
-            time.sleep(random.uniform(0.5, 1.5))
-        receiver.receive(pkt, self, sender)
-
-    def send_ack(self, ack, sender):
-        print(f"Network: Sending ACK {ack}")
-        sender.handle_ack(ack)

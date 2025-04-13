@@ -55,11 +55,15 @@ Using:
 - Resend on Timeout.
 - Receiver sends ACK for correct packet only.
 
+![alt text](image-1.png)
+
 ---
 
 ### Go-Back-N (GBN)
 - Window-based sending.
 - If ACK lost or timeout occurs → resend all packets from the lost one.
+
+![alt text](image-2.png)
 
 ---
 
@@ -67,6 +71,9 @@ Using:
 - Window-based sending.
 - If packet lost → resend only that lost packet.
 - Receiver buffers out-of-order packets.
+
+![alt text](image.png)
+
 
 ---
 
